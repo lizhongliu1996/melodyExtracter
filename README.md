@@ -11,9 +11,10 @@ can save you much efforts through our algorithm.
   piano, percussion, guitar, orchestra and sometimes electronic synthesizer. According 
   to the definition of "entropy", a parameter to reflect the degree of chaos, entropy 
   is constantly increasing, and the increasing process is irreversible. For example, mixing
-  juice with coca, then it is impossible to isolate coca. Based on that, when render many
-  tracks into a wav or mp3 file, it is a pretty hard challenge to remove a track, so get 
-  ride of the melody is quite a problem especially when you cannot find the midi file online.
+  juice with coca, then it is impossible to isolate coca. Based on that, after rendering many
+  tracks into one single wav or mp3 file, it is a pretty hard challenge to remove a track, so 
+  how to get ride of the melody is quite a problem especially when you cannot find the midi 
+  file online.
   
   Luckily, French mathematician Fourier demonstrated the rule that any complex waveform can be
   seen as a superposition of several sine waves. The Fourier transfrom is a power weapon that 
