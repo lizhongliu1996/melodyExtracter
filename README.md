@@ -1,6 +1,6 @@
 # melodyExtracter
 
-  Usually a commercial song is composed of many tracks including vocal,
+  Usually a typical commercial song is composed of many tracks including vocal,
   piano, percussion, guitar, orchestra and sometimes electronic synthesizer. According 
   to the definition of "entropy", a parameter to reflect the degree of chaos, entropy 
   is constantly increasing, and the increasing process is irreversible. For example, mix
