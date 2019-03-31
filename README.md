@@ -4,6 +4,8 @@ Having trouble find the accompaniment of a new song which you prepare for singin
 
 Tired of transcribing a song by repeat listenning to it thousands of times? 
 
+Sick of spending much time on clicking notes on digital work station and finding the matched tone color of each instruments? 
+
 Based on some bioacoustic technologies, it is possible that we
 can save you much efforts through our algorithm.
 
