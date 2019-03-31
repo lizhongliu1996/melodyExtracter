@@ -1,8 +1,10 @@
 # melodyExtracter
 
 Having trouble find the accompaniment of a new song which you prepare for singing 
-to your classmates or colleagues? Tired of transcribing a song by repeat listenning to 
-it thousands of times? Based on some bioacoustic technologies, it is possible that we
+to your classmates or colleagues? 
+Tired of transcribing a song by repeat listenning to 
+it thousands of times? 
+Based on some bioacoustic technologies, it is possible that we
 can save you much efforts through algorithm.
 
   Usually a typical commercial song is composed of many tracks including vocal,
