@@ -7,9 +7,8 @@
 #' @param keyChange input semitones to change key
 #' @return A wav file without vocal part
 #'
-#' @importFrom tuneR readMidi readMP3 readWave mono stereo
 #' @importFrom seewave savewav
-#' @importFrom sound pitch
+#' @importFrom sound loadSample pitch left right Ops.Sample
 #'
 #' @export
 #'
@@ -23,35 +22,22 @@
 #'  )
 #' }
 #'
-### this function that remove the human vocal part melody
+
 melodyExtractor <- function(songLoadPath,
-                            fileType = c("wav","mp3", "midi"),
                             songSavePath,
                             compensate = FALSE,
                             keyChange = NULL
                            ){
 
-  ## 1. first load song
-  fileType <- match.arg(fileType)
-  switch(
-    fileType,
-         "wav" = {
-           song = readWave(songLoadPath)
-         },
-         "mp3" = {
-           song = readMP3(songLoadPath)
-         },
-         "midi" = {
-           song = readMidi(songLoadPath)
-         }
-  )
+  ## 1. load wav file
+  song <- loadSample(songLoadPath)
 
   ## 2. divided into left mono and right mono
-  leftSong <- mono(song,"left")
-  rightSong <- mono(song,"right")
+  leftPan <- left(song)
+  rightPan <- right(song)
 
   ## 3. combine left and right by left - right
-  noVocalSong <- leftSong - rightSong
+  noVocalSong <- leftPan - rightPan
 
   ## 4. stereo the combined audio
   newSong <- stereo(noVocalSong, noVocalSong)
@@ -64,8 +50,8 @@ melodyExtractor <- function(songLoadPath,
   ## 5. add eq low and high pass
   ## 0-250, 3k-10k
   if(compensate == TRUE){
-    lowCompensate <- lowPass(song)
-    highCompensate <- highPass(song)
+    lowCompensate <- eq(song, from = 0, to = 250, rate = 44100)
+    highCompensate <- eq(song, from = 3000, to = 10000, rate = 44100)
     newSong <- newSong + lowCompensate + lowCompensate
   }
 
