@@ -9,12 +9,12 @@
 #' @export
 #'
 #' @examples \dontrun{
-#'  melodyExtractor(
-#'    songLoadPath = "~/Downloads/remember.wav",
-#'    fileType = "mp3"),
-#'    songSavePath = "~/song/remember.wav",
-#'    compensate = TRUE,
-#'    keyChange = -5
+#' ifonly <- loadSample("data/ifonly.wav")
+#' ifonly_eq <- eq(
+#'    song = ifonly,
+#'    from = 400,
+#'    to = 800,
+#'    rate = 44100
 #'  )
 #' }
 #'
