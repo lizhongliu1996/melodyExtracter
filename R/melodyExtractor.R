@@ -57,11 +57,12 @@ melodyExtractor <- function(songLoadPath,
   newSong <- stereo(noVocalSong, noVocalSong)
 
   ## 5. change the key
-  if(!is.null(aVariable)){
-    newSong = pitch(newsong, keyChange)
+  if(!is.null(keyChange)){
+    newSong = pitch(newSong, keyChange)
   }
 
   ## 5. add eq low and high pass
+  ## 0-250, 3k-10k
   if(compensate == TRUE){
     lowCompensate <- lowPass(song)
     highCompensate <- highPass(song)
@@ -69,6 +70,6 @@ melodyExtractor <- function(songLoadPath,
   }
 
   ## 6. output audio file
-  savewav(newSong, filename = songOutPath)
+  savewav(newSong, filename = songSavePath)
 
 }
