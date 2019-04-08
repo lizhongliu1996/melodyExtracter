@@ -9,7 +9,7 @@
 #' @export
 #'
 #' @examples \dontrun{
-#' ifonly <- loadSample("data/ifonly.wav")
+#' ifonly <- sound::loadSample("data/ifonly.wav")
 #' ifonly_eq <- eq(
 #'    song = ifonly,
 #'    from = 400,

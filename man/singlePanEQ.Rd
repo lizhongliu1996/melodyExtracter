@@ -23,6 +23,8 @@ function that do equalization for audio
 }
 \examples{
 \dontrun{
+ song <- sound::loadSample("inst/extdata/ifonly.wav")
+ left_song <- sound::left(song)
  test <- singlePanEQ(
       left_song,
       from = 250,

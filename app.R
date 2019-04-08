@@ -1,12 +1,11 @@
 library(shiny)
 library(shinyWidgets)
 library(melodyExtracter)
+options(shiny.maxRequestSize=60*1024^2)
 
 ui <- fluidPage(
 
-  tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "https://bootswatch.com/4/cerulean/bootstrap.css")),
-
-  setBackgroundImage(src = "https://yese69.com/wp-content/uploads/data/2018/1/3/cool-music-background-wallpapers-1920x1200-for-computer-WTG3033827.jpg"),
+  setBackgroundImage(src = "https://images7.alphacoders.com/319/319933.jpg"),
 
   h1("This is a shiny webpage to get rid of the vocal of a song"),
   p("Please upload the wav file you want to remove the melody"),
@@ -14,7 +13,6 @@ ui <- fluidPage(
   # App title ----
   titlePanel("Uploading wav Files"),
 
-  # Sidebar layout with input and output definitions ----
   sidebarLayout(
 
     # Sidebar panel for inputs ----
@@ -25,7 +23,9 @@ ui <- fluidPage(
         inputId = "song",
         label = "Choose WAV File",
         multiple = FALSE,
-        accept = c(".wav")
+        accept = c(".wav"),
+        buttonLabel = "Browse...",
+        placeholder = "No file selected"
       ), # end of input wav
 
       checkboxInput(
@@ -36,47 +36,67 @@ ui <- fluidPage(
 
       sliderInput(
         inputId = "keyChange",
-        abel = "semitones you want to change"),
-        value = 0,
+        label = "semitones you want to change",
         min = -12,
-        max = 12
-    ) # end keychange part
+        max = +12,
+        value = 0
+       ),# end keychange part
 
-    ), # end sidebarPanel
+      submitButton("confirm", icon("confirm"))
+
+      ), #end of Sidebar panel
 
     # Main panel for downloading outputs ----
-    mainPanel(
-      # Output: Data file ----
-      downloadLink('downloadData', 'Download')
-    )
+      mainPanel(
+         tableOutput("contents"),
 
+      # Output: Data file ----
+         downloadLink(
+            outputId = "downloadData",
+            label = "Download"
+         )#end of download
+        )#end of mainpanel
+  ) #end of sidebar layout
 )# end of ui
 
   # Define server logic to read selected file ----
-  server <- function(input, output, session) {
+server <- function(input, output, session) {
 
-      req(input$song)
-      req(input$compensate)
-      req(input$keyChange)
+      songLoad <- reactive({
+         req(input$dota2ID)
+         input$dota2ID
+      })
 
-          output$downloadData <- downloadHandler(
-            filename = function(){
-              paste(Sys.Date(), '.wav', sep='')
-            },
-            content = function(con) {
-              melodyExtractor(
-            songLoadPath = input$song,
-            songSavePath = input$download,
-            compensate = input$compensate,
-            keyChange = input$keyChange
-            )
-          }
-        )# end of download part
+      advanced <- reactive({
+        req(input$compensate)
+        input$compensate
+      })
 
+      key <- reactive({
+        req(input$keyChange)
+        input$keyChange
+      })
 
+     output$info <- renderText("your song is be processed, hit download button
+                               to download song without melody")
 
+      output$downloadData <- downloadHandler(
+                filename = function(){
+                   paste0("novocal",Sys.Date(), ".wav")
+                },
 
-  } # end of ui
+                content = function(file){
+                  melodyExtractor(
+                  songLoadPath = songLoad(),
+                  songSavePath = file,
+                  compensate = advanced(),
+                  keyChange = key()
+                  )
+                }
 
+      )# end of download part
+
+} # end of server
 
 shinyApp(ui, server)
+
