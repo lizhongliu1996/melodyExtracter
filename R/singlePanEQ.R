@@ -6,8 +6,9 @@
 #' @param rate sampling rate of audio
 #' @return single chanel sound file with frequency you want to change
 #'
-#' @importFrom stats filter
-#' @importFrom phonTools windowfunc
+#' @importFrom stats filter sd
+#' @importFrom phonTools windowfunc sinc
+#' @importFrom utils tail
 #' @export
 #'
 #' @examples \dontrun{

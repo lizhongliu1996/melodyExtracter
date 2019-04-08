@@ -2,7 +2,7 @@
 % Please edit documentation in R/eq.R
 \name{eq}
 \alias{eq}
-\title{function that do equalization for audio}
+\title{function that do equalization for audio.}
 \usage{
 eq(song, from, to, rate = 44100)
 }
@@ -19,7 +19,7 @@ eq(song, from, to, rate = 44100)
 wave file with frequency you want to change
 }
 \description{
-function that do equalization for audio
+function that do equalization for audio.
 }
 \examples{
 \dontrun{

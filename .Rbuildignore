@@ -1,2 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^app\.R$
+^rsconnect$
+^www$
+^_pkgdown\.yml$
+^docs$

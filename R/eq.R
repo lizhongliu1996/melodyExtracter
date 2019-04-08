@@ -1,4 +1,4 @@
-#' function that do equalization for audio
+#' function that do equalization for audio.
 #'
 #' @param song song file loaded
 #' @param from frequency that you want to start

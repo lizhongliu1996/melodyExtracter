@@ -15,8 +15,6 @@ melodyExtractor(songLoadPath, songSavePath, compensate = FALSE,
 \item{compensate}{whether add low and high freq compensation}
 
 \item{keyChange}{input semitones to change key}
-
-\item{fileType}{audio file type, it is a wav file or mp3 file or midi file}
 }
 \value{
 A wav file without vocal part
@@ -27,11 +25,10 @@ function that remove the human vocal part melody
 \examples{
 \dontrun{
  melodyExtractor(
-   songLoadPath = "~/Downloads/remember.wav",
-   fileType = "mp3"),
-   songSavePath = "~/song/remember.wav",
-   compensate = TRUE,
-   keyChange = -5
+   songLoadPath = "inst/extdata/ifonly.wav",
+   songSavePath = "novocal3.wav",
+   compensate = FALSE,
+   keyChange = +2
  )
 }
 
