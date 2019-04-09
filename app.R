@@ -1,5 +1,4 @@
 library(shiny)
-library(shinyWidgets)
 library(melodyExtracter)
 options(shiny.maxRequestSize=60*1024^2)
 

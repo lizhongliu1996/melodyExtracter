@@ -1,0 +1,13 @@
+name: melodyextracter
+title:
+username:
+account: lizhongliu1996
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 850422
+bundleId: 1998061
+url: https://lizhongliu1996.shinyapps.io/melodyextracter/
+when: 1554822402.75919
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .Rbuildignore|DESCRIPTION|NAMESPACE|README.md|inst/extdata/ifonly.wav|man/eq.Rd|man/melodyExtractor.Rd|man/singlePanEQ.Rd|R/eq.R|R/melodyExtractor.R|R/singlePanEQ.R|www/bg.jpg
