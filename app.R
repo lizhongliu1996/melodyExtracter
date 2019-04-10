@@ -1,4 +1,5 @@
 library(shiny)
+library(shinyWidgets)
 library(melodyExtracter)
 options(shiny.maxRequestSize=60*1024^2)
 
@@ -43,6 +44,8 @@ ui <- fluidPage(
 
       submitButton("confirm", icon("confirm"))
 
+      # actionButton(inputId = "ray", label = "test")
+
       ), #end of Sidebar panel
 
     # Main panel for downloading outputs ----
@@ -50,11 +53,13 @@ ui <- fluidPage(
          tableOutput("contents"),
 
       # Output: Data file ----
-         downloadLink(
+         downloadButton(
             outputId = "downloadData",
             label = "Download"
          )#end of download
+
         )#end of mainpanel
+
   ) #end of sidebar layout
 )# end of ui
 
@@ -62,8 +67,8 @@ ui <- fluidPage(
 server <- function(input, output, session) {
 
       songLoad <- reactive({
-         req(input$dota2ID)
-         input$dota2ID
+         req(input$song)
+         input$song
       })
 
       advanced <- reactive({
@@ -76,24 +81,24 @@ server <- function(input, output, session) {
         input$keyChange
       })
 
+
+        output$downloadData <- downloadHandler(
+            filename = function() {
+              paste0("novocal", Sys.Date(), ".wav")
+            },
+            content = function(file) {
+              melodyExtractor(
+                songLoadPath = as.character(songLoad()[4]),
+                songSavePath = file,
+                compensate = FALSE,
+                keyChange = +2
+              )
+            }
+          )
+
      output$info <- renderText("your song is be processed, hit download button
                                to download song without melody")
 
-      output$downloadData <- downloadHandler(
-                filename = function(){
-                   paste0("novocal",Sys.Date(), ".wav")
-                },
-
-                content = function(file){
-                  melodyExtractor(
-                  songLoadPath = songLoad(),
-                  songSavePath = file,
-                  compensate = advanced(),
-                  keyChange = key()
-                  )
-                }
-
-      )# end of download part
 
 } # end of server
 

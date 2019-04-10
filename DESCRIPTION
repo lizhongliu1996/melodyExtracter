@@ -14,8 +14,8 @@ Description: Usually a commercial song is composed of many tracks including voca
   This package refers to the principle of how headphone brand Boss remove the noise by adding
   the polarize reverse wave of sound we want to get rid of, however rightnow we can only deal
   with song that has mono vocal with 0 pan.
-Imports: tuneR, sound, phonTools
-Depends: R (>= 3.5)
+Imports: tuneR, sound, phonTools, shinyWidgets
+Depends: R (>= 3.3)
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
