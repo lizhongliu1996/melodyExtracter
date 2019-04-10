@@ -82,7 +82,7 @@ server <- function(input, output, session) {
       })
 
 
-        output$downloadData <- downloadHandler(
+      output$downloadData <- downloadHandler(
             filename = function() {
               paste0("novocal", Sys.Date(), ".wav")
             },
