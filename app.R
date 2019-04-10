@@ -9,6 +9,9 @@ ui <- fluidPage(
 
   h1("This is a shiny webpage to get rid of the vocal of a song"),
   p("Please upload the wav file you want to remove the melody"),
+  p("Beware: this only applys to song with vocal pan = 0, add low freq compensate
+    will strength the sound of frequency 70~100Hz,  which is the freq of bass and
+    drum, but this might also add some vocal and clicking sound")
 
   # App title ----
   titlePanel("Uploading wav Files"),
@@ -73,6 +76,7 @@ server <- function(input, output, session) {
 
       advanced <- reactive({
         req(input$compensate)
+        print(input$compensate)
         input$compensate
       })
 
@@ -82,23 +86,19 @@ server <- function(input, output, session) {
       })
 
 
-      output$downloadData <- downloadHandler(
+        output$downloadData <- downloadHandler(
             filename = function() {
-              paste0("novocal", Sys.Date(), ".wav")
+              paste("novocal-", Sys.Date(), ".wav", sep="")
             },
             content = function(file) {
               melodyExtractor(
                 songLoadPath = as.character(songLoad()[4]),
                 songSavePath = file,
                 compensate = FALSE,
-                keyChange = +2
+                keyChange = key()
               )
             }
           )
-
-     output$info <- renderText("your song is be processed, hit download button
-                               to download song without melody")
-
 
 } # end of server
 
