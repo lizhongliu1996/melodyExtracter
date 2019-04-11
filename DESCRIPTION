@@ -1,7 +1,7 @@
 Package: melodyExtracter
 Title: This is a package that can remove the vocal part of a song that sings the melody,
       gives you only the accompaniment so that you can record and sing on karaoke or live
-Version: 0.0.0.9000
+Version: 1.0.0.0
 Authors@R: person("Lizhong", "Liu", email = "lxl816@miami.edu", role = c("aut", "cre"))
 Maintainer: Lizhong Liu <lxl816@miami.edu>
 Description: Usually a commercial song is composed of many tracks including vocal,
