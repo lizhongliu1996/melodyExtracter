@@ -22,7 +22,7 @@ can save you much efforts through our algorithm.
   
   Luckily, French mathematician Fourier demonstrated the rule that any complex waveform can be
   seen as a superposition of several sine waves. The Fourier transfrom is a powerful weapon that 
-  can easily separating the sine waves that make up the composite waveform and transform into 
+  can easily separating the sine waves which make up the composite waveform and transform them into 
   a spectrogram, which we can easily see the characteristics of composite waveform and do some 
   manipulations to get the desire waveform.  Sound is one type of mechanical wave with salient
   features, thus we can use Fourier transfrom to play some interesting tricks in music.
