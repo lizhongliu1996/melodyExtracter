@@ -49,7 +49,6 @@ ui <- fluidPage(
        ),# end keychange part
 
       submitButton("confirm", icon("confirm"))
-      # actionButton("ray","test" )
 
       ), #end of Sidebar panel
 
@@ -77,7 +76,6 @@ server <- function(input, output, session) {
       })
 
       advanced <- reactive({
-        req(input$compensate)
         input$compensate
       })
 
