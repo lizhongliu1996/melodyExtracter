@@ -9,11 +9,12 @@ ui <- fluidPage(
 
   h1("This is a shiny webpage to get rid of vocal melody of a song"),
   p("Please upload the wav file you want to remove the melody"),
-  p("Beware: this only applys to song with vocal pan = 0, add low freq compensate
+  p("Beware: this only applys to song with vocal pan = 0, add low freq compensation
     will strengthen"),
   p("the sound of frequency 70~100Hz,  which is the freq of bass and
     drum, but this might also "),
   p("add some vocal reverb and delay effects, also clicking sound"),
+  p("if you want to do equalization, please use this package in R"),
 
   # App title ----
   titlePanel("Uploading wav Files"),
@@ -35,7 +36,7 @@ ui <- fluidPage(
 
       checkboxInput(
         inputId = "compensate",
-        label = "Add low freq compensate",
+        label = "Add low freq compensation",
         value = FALSE
       ) , # end compensate part
 
@@ -48,6 +49,7 @@ ui <- fluidPage(
        ),# end keychange part
 
       submitButton("confirm", icon("confirm"))
+      # actionButton("ray","test" )
 
       ), #end of Sidebar panel
 
