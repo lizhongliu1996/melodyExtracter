@@ -21,7 +21,7 @@ can save you much efforts through our algorithm.
   file online.
   
   Luckily, French mathematician Fourier demonstrated the rule that any complex waveform can be
-  seen as a superposition of several sine waves. The Fourier transfrom is a power weapon that 
+  seen as a superposition of several sine waves. The Fourier transfrom is a powerful weapon that 
   can easily separating the sine waves that make up the composite waveform and transform into 
   a spectrogram, which we can easily see the characteristics of composite waveform and do some 
   manipulations to get the desire waveform.  Sound is one type of mechanical wave with salient
