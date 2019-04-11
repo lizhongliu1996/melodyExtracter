@@ -27,6 +27,6 @@ can save you much efforts through our algorithm.
   manipulations to get the desire waveform.  Sound is one type of mechanical wave with salient
   features, thus we can use Fourier transformation to play some interesting tricks in music.
   
-  This package refers to the principle of how the headphone brand BOSE remove the noise by adding
+  This package refers to the principle of how the headphone brand "BOSE" remove the noise by adding
   the polarize reverse wave of specifical frenquency we want to get rid of, however rightnow we 
   can only deal  with song that has mono vocal part with 0 pan.
