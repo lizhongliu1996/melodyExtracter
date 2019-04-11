@@ -25,7 +25,7 @@ can save you much efforts through our algorithm.
   can easily separating the sine waves which make up the composite waveform and transform them into 
   a spectrogram, which we can easily see the characteristics of composite waveform and do some 
   manipulations to get the desire waveform.  Sound is one type of mechanical wave with salient
-  features, thus we can use Fourier transfrom to play some interesting tricks in music.
+  features, thus we can use Fourier transformation to play some interesting tricks in music.
   
   This package refers to the principle of how the headphone brand BOSE remove the noise by adding
   the polarize reverse wave of specifical frenquency we want to get rid of, however rightnow we 
