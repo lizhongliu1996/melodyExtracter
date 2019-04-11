@@ -8,13 +8,13 @@ ui <- fluidPage(
   setBackgroundImage(src = "https://images.wallpaperscraft.com/image/microphone_wire_sound_123334_1920x1080.jpg"),
 
   h1("This is a shiny webpage to get rid of vocal melody of a song"),
-  p("Please upload the wav file you want to remove the melody"),
+  p("Please upload the wav file you want to remove melody(please be patient for shiny.io server to response)"),
   p("Beware: this only applys to song with vocal pan = 0, add low freq compensation
     will strengthen"),
   p("the sound of frequency 70~100Hz,  which is the freq of bass and
     drum, but this might also "),
   p("add some vocal reverb and delay effects, also clicking sound"),
-  p("if you want to do equalization, please use this package in R"),
+  p("if you want to do equalization to get better performance, please use this package in R"),
 
   # App title ----
   titlePanel("Uploading wav Files"),
