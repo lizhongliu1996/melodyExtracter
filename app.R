@@ -5,13 +5,15 @@ options(shiny.maxRequestSize=60*1024^2)
 
 ui <- fluidPage(
 
-  setBackgroundImage(src = "https://images7.alphacoders.com/319/319933.jpg"),
+  setBackgroundImage(src = "https://images.wallpaperscraft.com/image/microphone_wire_sound_123334_1920x1080.jpg"),
 
-  h1("This is a shiny webpage to get rid of the vocal of a song"),
+  h1("This is a shiny webpage to get rid of vocal melody of a song"),
   p("Please upload the wav file you want to remove the melody"),
   p("Beware: this only applys to song with vocal pan = 0, add low freq compensate
-    will strength the sound of frequency 70~100Hz,  which is the freq of bass and
-    drum, but this might also add some vocal and clicking sound")
+    will strengthen"),
+  p("the sound of frequency 70~100Hz,  which is the freq of bass and
+    drum, but this might also "),
+  p("add some vocal reverb and delay effects, also clicking sound"),
 
   # App title ----
   titlePanel("Uploading wav Files"),
@@ -47,8 +49,6 @@ ui <- fluidPage(
 
       submitButton("confirm", icon("confirm"))
 
-      # actionButton(inputId = "ray", label = "test")
-
       ), #end of Sidebar panel
 
     # Main panel for downloading outputs ----
@@ -76,7 +76,6 @@ server <- function(input, output, session) {
 
       advanced <- reactive({
         req(input$compensate)
-        print(input$compensate)
         input$compensate
       })
 
@@ -85,8 +84,7 @@ server <- function(input, output, session) {
         input$keyChange
       })
 
-
-        output$downloadData <- downloadHandler(
+      output$downloadData <- downloadHandler(
             filename = function() {
               paste("novocal-", Sys.Date(), ".wav", sep="")
             },
@@ -94,11 +92,11 @@ server <- function(input, output, session) {
               melodyExtractor(
                 songLoadPath = as.character(songLoad()[4]),
                 songSavePath = file,
-                compensate = FALSE,
+                compensate = advanced(),
                 keyChange = key()
               )
             }
-          )
+      )
 
 } # end of server
 
