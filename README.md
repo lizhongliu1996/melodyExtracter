@@ -1,3 +1,6 @@
+# How to install
+run `devtools::install_github("lizhongliu1996/melodyExtracter")` in R console
+
 # melodyExtracter
 
 Having trouble find the accompaniment of a new song which you prepare for singing to your classmates or colleagues? 
